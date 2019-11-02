@@ -13,12 +13,15 @@ function Player(props) {
       </div>
 
       <div className="row">
-        <p className="current-music border rounded">{props.list[props.current].replace("../files/", "")}</p>
+        <p className="current-music border rounded"> {props.list[props.current].replace("../files/", "")} </p>
       </div>
 
       <div className="buttons row d-flex justify-content-between">
         <button className="previous btn btn-sm btn-light" type="button" onClick={props.previousMusic} data-toggle="tooltip" data-placement="bottom" title="previous music">
           PRV
+        </button>
+        <button className="playPause btn btn-sm btn-light" type="button" onClick={props.playPause} data-toggle="tooltip" data-placement="bottom" title="play/pause music">
+          PlayPause
         </button>
         <button className="next btn btn-sm btn-light" type="button" onClick={props.nextMusic} data-toggle="tooltip" data-placement="bottom" title="next music">
           <i className="fa fa-chevron-circle-right"></i>Next

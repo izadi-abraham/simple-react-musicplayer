@@ -16,9 +16,11 @@ class MusicPlayer extends Component {
     super(props);
     this.state = {
       current: 0,
+      playPauseStat:"",
       showList: true
     };
     this.audioPlayer = React.createRef();
+    
 
   }
 
@@ -41,14 +43,30 @@ class MusicPlayer extends Component {
 
   };
 
-  handlePlaylistClick = self => {
+  handlePlaylistClick = (self) => {
     this.setState({current: self})
   };
+
+  handleplayPause = () => {
+
+    this.setState({playPauseStat: true});
+
+    if (this.state.playPauseStat) {
+      this.audioPlayer.current.play();
+    }
+    else {
+      this.audioPlayer.current.pause();
+      this.setState({playPauseStat: false});
+    }
+    console.log(this.state.playPauseStat);
+  };
+
 
 
   componentDidMount() {
     // this.audioPlayer.current.addEventListener('ended', this.handleNextClick);
     this.audioPlayer.current.onended = this.handleNextClick;
+
   }
 
 
@@ -62,6 +80,8 @@ class MusicPlayer extends Component {
           nextMusic={this.handleNextClick}
           togglePlaylist={this.handleTogglePlaylist}
           previousMusic={this.handlePreviousMusic}
+          playPause={this.handleplayPause}
+
         />
         <PlayList list={list}
                   handleClick = {this.handlePlaylistClick}
