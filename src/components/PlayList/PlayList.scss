@@ -1,0 +1,21 @@
+
+
+
+.list-group-item{
+
+  width: 300px;
+  cursor: pointer;
+
+  &.active {
+    background-color: #f1f3f4 !important;
+    border-color: #f1f3f4 !important;
+    color: black !important;
+    font-weight: bold;
+    cursor: default;
+
+  }
+
+}
+
+
+

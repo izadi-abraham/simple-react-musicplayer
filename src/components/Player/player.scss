@@ -1,0 +1,19 @@
+@function px2rem($px){
+  @return #{$px/16}rem;
+}
+
+.player{
+  margin: px2rem(15);
+
+  .current-music{
+    margin: px2rem(15);
+    width: px2rem(300);
+    padding: 0 px2rem(20);
+  }
+
+  .buttons{
+    width: px2rem(300);
+  }
+}
+
+
